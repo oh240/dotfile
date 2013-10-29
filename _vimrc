@@ -12,7 +12,7 @@ NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/scrooloose/nerdtree.git'
 NeoBundle 'git://github.com/scrooloose/syntastic.git'
-
+NeoBundle 'https://github.com/mattn/emmet-vim`'
 syntax on
 filetype plugin on
 filetype indent on
@@ -36,5 +36,18 @@ set t_Co=256
 noremap ; :
 noremap : ;
 set encoding=utf-8
-let g:cakephp_enable_fix_mode = 1
-let g:cakephp_app = "~nick/ihav/app"
+set title
+
+let g:cakephp_enable_auto_mode = 1
+
+"カッコの保管設定
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+vnoremap { "zdi{<C-R>z}<ESC>
+vnoremap [ "zdi[<C-R>z]<ESC>
+vnoremap ( "zdi(<C-R>z)<ESC>
+vnoremap " "zdi"<C-R>z"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
