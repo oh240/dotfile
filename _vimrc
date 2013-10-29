@@ -51,3 +51,18 @@ vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
+
+
+
+"emmetの設定
+""ctrl + e で展開
+let g:user_emmet_expandabbr_key = '<c-e>'
+ 
+
+
+"新しい行を作ったときに高度な自動インデントを行う
+set smartindent
+
+"新しい行のインデントを現在行と同じにする
+set autoindent
+
