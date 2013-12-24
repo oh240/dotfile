@@ -20,7 +20,11 @@ filetype indent on
 
 " SSH クライアントの設定によってはマウスが使える（putty
 " だと最初からいける）
-set mouse=n
+"set mouse=n
+
+if has('mouse')
+  set mouse=a
+endif
 
 set noswapfile
 set backup
@@ -29,6 +33,7 @@ syntax on
 filetype on
 filetype plugin on
 filetype indent on
+set vb t_vb=
 set number
 set tabstop=2
 set shiftwidth=2
@@ -39,8 +44,6 @@ noremap ; :
 noremap : ;
 set encoding=utf-8
 set title
-
-let g:cakephp_enable_auto_mode = 1
 
 "カッコの保管設定
 inoremap { {}<LEFT>
