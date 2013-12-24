@@ -12,7 +12,8 @@ NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/scrooloose/nerdtree.git'
 NeoBundle 'git://github.com/scrooloose/syntastic.git'
-NeoBundle 'https://github.com/mattn/emmet-vim`'
+NeoBundle 'https://github.com/mattn/emmet-vim'
+
 syntax on
 filetype plugin on
 filetype indent on
@@ -22,6 +23,7 @@ filetype indent on
 set mouse=n
 
 set noswapfile
+set backup
 set clipboard=unnamed,autoselect
 syntax on
 filetype on
@@ -51,14 +53,11 @@ vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
-
-
+inoremap <C-c> <Esc>
 
 "emmetの設定
 ""ctrl + e で展開
 let g:user_emmet_expandabbr_key = '<c-e>'
- 
-
 
 "新しい行を作ったときに高度な自動インデントを行う
 set smartindent
@@ -66,3 +65,5 @@ set smartindent
 "新しい行のインデントを現在行と同じにする
 set autoindent
 
+"sass,scssのシンタックスハイライト表示
+au BufRead,BufNewFile *.scss set filetype=sass
