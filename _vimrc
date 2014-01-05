@@ -12,6 +12,7 @@ NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/scrooloose/nerdtree.git'
 NeoBundle 'git://github.com/scrooloose/syntastic.git'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'https://github.com/mattn/emmet-vim'
 
 syntax on
@@ -27,8 +28,14 @@ if has('mouse')
 endif
 
 set noswapfile
-set backup
+set nobackup
+set hidden
+
+"" 他で書き換えられたら自動で読み直す"
+set autoread
 set clipboard=unnamed,autoselect
+set showmode
+
 syntax on
 filetype on
 filetype plugin on
@@ -38,7 +45,9 @@ set number
 set tabstop=2
 set shiftwidth=2
 set noexpandtab
-colorscheme molokai
+
+""colorscheme molokai
+colorscheme hybrid
 set t_Co=256
 noremap ; :
 noremap : ;
@@ -56,7 +65,12 @@ vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
-inoremap <C-c> <Esc>
+inoremap jj <Esc>
+
+" 0, 9で行頭、行末へ
+nmap 1 0
+nmap 0 ^
+nmap 9 $
 
 "emmetの設定
 ""ctrl + e で展開
