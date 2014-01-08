@@ -1,6 +1,7 @@
 ctrlp.vim
 emmet-vim
 neobundle.vim
-nerdtree
 syntastic
+unite.vim
 vim-surround
+vimfiler.vim
