@@ -10,7 +10,7 @@ call neobundle#rc(expand('~/.vim/bundle'))
 
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-"NeoBundle 'git://github.com/scrooloose/nerdtree.git'
+NeoBundle 'tpope/vim-markdown'
 NeoBundle 'git://github.com/scrooloose/syntastic.git'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
@@ -33,7 +33,7 @@ set noswapfile
 set nobackup
 set hidden
 
-"" 他で書き換えられたら自動で読み直す"
+" 他で書き換えられたら自動で読み直す
 set autoread
 set clipboard=unnamed,autoselect
 set showmode
@@ -81,17 +81,17 @@ nmap 0 ^
 nmap 9 $
 
 "Search
- set hlsearch  " highlight search
- set incsearch  " incremental search, search as you type
- set ignorecase " Ignore case when searching 
- set smartcase " Ignore case when searching lowercase
-  
-  " ESCキー2度押しでハイライトを消す
-  nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
-  nnoremap / :<C-u>set hlsearch<Return>/
-  nnoremap ? :<C-u>set hlsearch<Return>?
-  nnoremap * :<C-u>set hlsearch<Return>*
-  nnoremap # :<C-u>set hlsearch<Return>#""""""
+set hlsearch  " highlight search
+set incsearch  " incremental search, search as you type
+set ignorecase " Ignore case when searching 
+set smartcase " Ignore case when searching lowercase
+ 
+" ESCキー2度押しでハイライトを消す
+nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
+nnoremap / :<C-u>set hlsearch<Return>/
+nnoremap ? :<C-u>set hlsearch<Return>?
+nnoremap * :<C-u>set hlsearch<Return>*
+nnoremap # :<C-u>set hlsearch<Return>#""""""
 
 "emmetの設定
 ""ctrl + e で展開
@@ -99,9 +99,10 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 
 "新しい行を作ったときに高度な自動インデントを行う
 set smartindent
+set nowrap
 
 "新しい行のインデントを現在行と同じにする
 set autoindent
 
-"sass,scssのシンタックスハイライト表示
+"sass,scss Syntax設定
 au BufRead,BufNewFile *.scss set filetype=sass

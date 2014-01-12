@@ -3,5 +3,6 @@ emmet-vim
 neobundle.vim
 syntastic
 unite.vim
+vim-markdown
 vim-surround
 vimfiler.vim
