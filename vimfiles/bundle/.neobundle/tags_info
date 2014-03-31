@@ -1,6 +1,11 @@
 ctrlp.vim
 emmet-vim
 neobundle.vim
+neocomplcache
+neocomplete-php.vim
+neocomplete.vim
+nerdtree
+php.vim-html-enhanced
 syntastic
 unite.vim
 vim-markdown

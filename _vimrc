@@ -10,12 +10,17 @@ call neobundle#rc(expand('~/.vim/bundle'))
 
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'tpope/vim-markdown'
+NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'git://github.com/scrooloose/syntastic.git'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'https://github.com/mattn/emmet-vim'
+NeoBundle 'https://github.com/comeonly/php.vim-html-enhanced'
+NeoBundle 'Shougo/neocomplcache'
 
 syntax on
 filetype plugin on
@@ -38,18 +43,16 @@ set autoread
 set clipboard=unnamed,autoselect
 set showmode
 
-syntax on
+syntax enable
 filetype on
 filetype plugin on
 filetype indent on
 set vb t_vb=
 set number
-set tabstop=2
-set shiftwidth=2
-set noexpandtab
-
-""colorscheme molokai
-colorscheme hybrid
+set tabstop=4
+set shiftwidth=4
+"" colorscheme hybrid
+colorscheme molokai
 set t_Co=256
 noremap ; :
 noremap : ;
@@ -67,7 +70,7 @@ vnoremap [ "zdi[<C-R>z]<ESC>
 vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
-inoremap jjj <Esc>
+inoremap jj <Esc>
 
 "少し多めに移動
 nmap <C-j> 5j
@@ -106,3 +109,20 @@ set autoindent
 
 "sass,scss Syntax設定
 au BufRead,BufNewFile *.scss set filetype=sass
+let g:neocomplete_php_locale = 'ja'
+
+"-------------------------------------------------
+"" neocomplcache設定
+"-------------------------------------------------
+""辞書ファイル
+autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dictionaries/php.dict filetype=php
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_camel_case_completion = 0 
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_manual_completion_start_length = 0
+let g:neocomplcache_caching_percent_in_statusline = 1
+let g:neocomplcache_enable_skip_completion = 1
+let g:neocomplcache_skip_input_time = '0.5'
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
