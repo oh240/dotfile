@@ -1003,6 +1003,10 @@ neocomplete#complete_common_string()
 		have long common string.
 >
 		inoremap <expr><C-l>     neocomplete#complete_common_string()
+		inoremap <expr><Tab>
+		\ neocomplete#complete_common_string() != '' ?
+		\   neocomplete#complete_common_string() :
+		\ pumvisible() ? "\<C-n>" : "\<Tab>"
 <
 				*<Plug>(neocomplete_start_unite_complete)*
 <Plug>(neocomplete_start_unite_complete)
@@ -1881,6 +1885,7 @@ your Vim initialization.
 Q: neocomplete conflicts when multibyte input in GVim.
 
 A: Because Vim multibyte IME integration is incomplete.
+You should use "fcitx" instead of "ibus".
 If you set |g:neocomplete#lock_iminsert| is non-zero, it may be fixed.
 
 Q: Freeze for a while and close opened folding when I begin to insert.
