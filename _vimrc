@@ -25,7 +25,6 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'PDV--phpDocumentor-for-Vim'
 NeoBundle 'tobyS/pdv'
 
 syntax on
@@ -63,8 +62,6 @@ set novisualbell
 
 colorscheme zenburn
 set t_Co=256
-noremap ; :
-noremap : ;
 set encoding=utf-8
 set title
 
