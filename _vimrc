@@ -1,12 +1,11 @@
-scriptencoding utf-8
-set nocompatible
-
 if has('vim_starting')
-	filetype plugin off
-	filetype indent off
-	execute 'set runtimepath+=' . expand('~/.vim/bundle/neobundle.vim')
+	if &compatible
+		set nocompatible               " Be iMproved
+	endif
+	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle'))
+
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundle 'git://github.com/kien/ctrlp.vim.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
@@ -20,13 +19,16 @@ NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'https://github.com/mattn/emmet-vim'
-NeoBundle 'https://github.com/comeonly/php.vim-html-enhanced'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'PDV--phpDocumentor-for-Vim'
-NeoBundle 'tobyS/pdv'
+NeoBundle 'claco/jasmine.vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'Glench/Vim-Jinja2-Syntax'
+
+call neobundle#end()
 
 syntax on
 filetype plugin on
@@ -43,6 +45,8 @@ endif
 set noswapfile
 set nobackup
 set hidden
+set noundofile
+set background=dark
 
 " 他で書き換えられたら自動で読み直す
 set autoread
@@ -61,7 +65,7 @@ set smarttab
 set t_vb=
 set novisualbell
 
-colorscheme zenburn
+colorscheme solarized
 set t_Co=256
 noremap ; :
 noremap : ;
@@ -115,11 +119,6 @@ nnoremap # :<C-u>set hlsearch<Return>#
 ""ctrl + e で展開
 let g:user_emmet_expandabbr_key = '<c-e>'
 
-source $HOME/.vim/bundle/PDV--phpDocumentor-for-Vim/plugin/php-doc.vim
-"PhpDocの生成
-inoremap <C-q> <Esc>:call PhpDocSingle()<CR>i
-nnoremap <C-q> :call PhpDocSingle()<CR>
-vnoremap <C-q> :call PhpDocRange()<CR>
 "新しい行を作ったときに高度な自動インデントを行う
 set smartindent
 set nowrap
@@ -212,3 +211,8 @@ function! MyFugitive()
   endtry
   return ''
 endfunction
+"
+" vimにcoffeeファイルタイプを認識させる
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" インデントを設定
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
